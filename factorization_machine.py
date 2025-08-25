@@ -12,7 +12,11 @@ import numpy as np
 
 
 def triu_mask(input_size, device=None):
-    """產生一個上三角為1(不包含對角線)，其餘為0"""
+    """
+    產生一個上三角為1(不包含對角線)，其餘為0，
+    這個輔助函數只有在你想要查看 Q 矩陣時才需要，
+    在高效的前向傳播中並不會用到。
+    """
     mask = torch.ones(input_size, input_size, device=device)
     return mask.triu(diagonal=1)
 
@@ -25,7 +29,6 @@ def VtoQ(V):
 class QuadraticLayer(nn.Module):
     """
     帶有二次項的模型的基底類別。
-    提供了一個方便的訓練方法。
     """
     def __init__(self):
         super().__init__()
@@ -67,7 +70,7 @@ class FactorizationMachine(QuadraticLayer):
         self.h = nn.Parameter(torch.empty(input_size))
         # 偏置項或偏移量
         self.bias = nn.Parameter(torch.empty(1))
-        # 交互項參數
+        # 交互項參數 (k,d) 
         self.V = nn.Parameter(torch.empty(factorization_size, input_size))
 
         self.init_params() # 創建時即初始化參數
