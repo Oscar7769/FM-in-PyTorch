@@ -15,9 +15,12 @@
 
 您需要安裝以下 Python 套件才能運行此程式碼：
 
-- **PyTorch**
+- **PyTorch (2.6.0+cu124)**
 
-- **NumPy**
+- **NumPy (2.0.2)**
+    ```bash
+    pip install numpy
+    ```
 
 ## 🚀 如何使用
 
@@ -74,18 +77,6 @@ print("   Datasets saved to 'data/' directory.")
 # --- 3. 產生並儲存初始權重 ---
 print("3. Generating and saving initial model weights...")
 model_py_init = FactorizationMachine(input_size=VAR_NUM, factorization_size=K)
-
-# 提取權重
-initial_bias = model_py_init.bias.detach().numpy()
-initial_h = model_py_init.h.detach().numpy()
-initial_V = model_py_init.V.detach().numpy()
-
-os.makedirs("data", exist_ok=True)
-np.save("data/initial_bias.npy", initial_bias)
-np.save("data/initial_h.npy", initial_h)
-np.save("data/initial_V.npy", initial_V)
-print("   Initial weights saved.")
-print("\nData generation complete.")
 
 # 提取權重
 initial_bias = model_py_init.bias.detach().numpy()
