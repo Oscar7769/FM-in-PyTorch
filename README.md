@@ -17,6 +17,8 @@
 
 - **PyTorch (2.6.0+cu124)**
 
+- **dimod (0.12.20)**
+
 - **NumPy (2.0.2)**
     ```bash
     pip install numpy
