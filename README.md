@@ -18,19 +18,19 @@ The following specific versions are required for compatibility:
 
 Follow these steps strictly in order to handle dependency resolution between Conda and Pip.
 
-### 1. Create Conda Environment
+## Create Conda Environment
 Create a clean environment with the specific Python version.
 
 
-# Create environment
+### Create environment
 ```bash
 conda create -n photonics python=3.9.23 -y
 ```
-# Activate environment
+### Activate environment
 ```bash
 conda activate mp
 ```
-# Install PyTorch (CUDA 12.4)
+### Install PyTorch (CUDA 12.4)
 ```bash
 pip install torch==2.6.0+cu124 --index-url [https://download.pytorch.org/whl/cu124](https://download.pytorch.org/whl/cu124)
 ```
